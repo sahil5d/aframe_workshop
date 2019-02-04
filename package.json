@@ -1,0 +1,9 @@
+{
+  "name": "spasetime",
+  "scripts": {
+    "dev": "http-server ./"
+  },
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}

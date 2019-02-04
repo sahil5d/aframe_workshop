@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <title>Hey World</title>
+    <link rel="shortcut icon" href="photosmine/favicon.png" />
+
+    <script src="codenotmine/aframe.js"></script>
+    <script src="codenotmine/aframe-environment-component.js"></script>
+    <script src="codenotmine/aframe-animation-component.js"></script>
+    <script src="codenotmine/aframe-extras.js"></script>
+    <script src="codenotmine/aframe-gblock.js"></script>
+    <script src="codenotmine/moment.js"></script>
+    <script src="codenotmine/jquery.js"></script>
+    <script src="codenotmine/lodash.js"></script>
+    <script src="codenotmine/tiny-color.js"></script>
+    <link rel="stylesheet" href="codenotmine/tachyons.css" />
+
+    <script src="codemine/customaframestuff.js"></script>
+    <link rel="stylesheet" href="codemine/index.css" />
+</head>
+
+<body>
+
+    <a-scene background="color: #222222" shadow="type: pcfsoft; autoUpdate: false;" vr-mode-ui="enabled: false"
+        keyboard-shortcuts="enterVR: false" custom-snooze custom-shadows embedded>
+
+        <!-- photo assets -->
+        <a-assets>
+            <img id="thephoto" src="photosmine/thephoto.jpg">
+        </a-assets>
+
+        <!-- environment helper -->
+        <a-entity id="theenvironment" environment="active:true;preset:default;skyType:atmosphere;lighting:none;fog:0;groundYScale:0;ground:none;playArea:.5;flatShading:true;groundTexture:none;dressing:none;grid:none;"></a-entity>
+
+        <!-- lights -->
+        <a-entity id="theambientlight" light="type: ambient; color: #BBBBBB"></a-entity>
+        <a-entity id="thedirectlight" light="type: directional; color: #FFFFFF; intensity: 0.6; castShadow:true;"
+            position="5 10 10"></a-entity>
+
+
+        <!-- camera and rig-->
+        <a-entity id="thecamerarig" position="0 1.8 2.2" wasd-controls="fly: true;" look-controls="reverseMouseDrag: true;">
+            <a-entity id="thecamera" camera="fov:50;far:2000;zoom:1;active:true;" rotation="-20 0 0" cursor="rayOrigin: mouse"></a-entity>
+        </a-entity>
+
+
+        <!-- floor and platform -->
+        <a-circle id="thefloor" radius="20" segments="64" rotation="-90 0 0" position="0 0 0" color="#111111" shadow="cast: false; receive: true"></a-circle>
+        <a-box id="theplatform" shadow position="0 0.5 -1" rotation="0 22 0" depth="3" width="3" height=".1" color="#CCCCCC"></a-box>
+
+
+        <!-- book -->
+        <a-entity gblock="https://poly.google.com/view/1WggoIFq8tx" position="-.28 .20 .29" scale=".7 .7 .7" shadow></a-entity>
+        <!-- pencil -->
+        <a-entity gblock="https://poly.google.com/view/5R0mBgid5-k" position="0 .8 .4" rotation="0 70 0" scale=".05 .05 .05"
+            shadow></a-entity>
+        <!-- brain -->
+        <a-entity gblock="https://poly.google.com/view/5mPRPZkI3qt" position=".07 .68 -.58" rotation="0 22 0" scale=".002 .002 .002"
+            shadow></a-entity>
+
+        <!-- profile photo -->
+        <a-image src="#thephoto" position="-.8 1.2 -1.5" rotation="-5 30 0" shadow spin-on-mouseenter></a-image>
+
+
+        <!-- text and background -->
+        <a-rounded position=".66 1.34 -.9" rotation="0 -30 0" width="1.47" height=".22" radius="0.01" color="#333333"></a-rounded>
+        <a-entity text="value:Supreme Leader; color:#eeeeee; shader: msdf; width:4; align:center; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/rubik/Rubik-Medium.json;"
+            position=".63 1.23 -.84" rotation="0 -30 0"></a-entity>
+
+    </a-scene>
+
+
+    <script src="codemine/index.js"></script>
+</body>
+
+</html>
